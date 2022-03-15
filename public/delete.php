@@ -3,7 +3,7 @@ require_once('connection.php');
 if(isset($_GET['Del']))
          {
              $gataId = $_GET['Del'];
-             $query = " delete from gatagorey where id = '".$gataId."'"; // this query for delete record from table gatagorey
+             $query = " delete from category where id = '".$gataId."'"; // this query for delete record from table category
              $result = mysqli_query($con,$query);
              if($result)
              {

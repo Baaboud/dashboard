@@ -5,11 +5,10 @@
     if(isset($_POST['update'])) 
     {
         $gataID = $_GET['ID'];
-        $gataName = $_POST['gata-name'];
-        $gataDes = $_POST['gata-des'];
-       
+        $gataName = $_POST['cate-name'];
+        $gataDes = $_POST['cate-description'];
 
-        $query = " update gatagorey set name = '".$gataName."', des='".$gataDes."' where id='".$gataID."'";// this query for update table gatagorey
+        $query = " update category set name = '".$gataName."', description='".$gataDes."' where id='".$gataID."'";// this query for update table category
         $result = mysqli_query($con,$query);
 
         if($result)//check query 
@@ -28,7 +27,7 @@
         $proName = $_POST['pro-name'];
         $proDes = $_POST['pro-des'];
         $price = $_POST['price'];
-        $gata = $_POST['gatagorey'];
+        $gata = $_POST['category'];
         $image=$_FILES['image']['name'];
 
         $file_path="../public/upload/"; //this path for storge image
@@ -40,7 +39,7 @@
             move_uploaded_file($_FILES["image"]["tmp_name"],$file_path.$newName);
 
 
-        $query2="update product set prodName ='".$proName."', des='".$proDes."', price ='".$price."', image ='".$newName."',gataID='".$gata."' where id='".$proID."'"; //this query for update table products
+        $query2="update product set name ='".$proName."', description='".$proDes."', price ='".$price."', img ='".$newName."', category ='".$gata."' where id='".$proID."'"; //this query for update table products
         $result2=mysqli_query($con,$query2);
 
         if($result2)
