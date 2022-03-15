@@ -1,19 +1,19 @@
 <?php 
   require_once("connection.php");
-// This  insert for gatagory
-  if(isset($_POST['submit']))
+// This  insert for category
+  if(isset($_POST['add-category']))
   {
-      if(empty($_POST['gata-name']) || empty($_POST['gata-des']) ) // For make sure that post value is not empty
+      if(empty($_POST['cate-name']) || empty($_POST['cate-description']) ) // For make sure that post value is not empty
       {
           echo ' Please Fill in the Blanks ';
       }
       else
       {
-          $gataName = $_POST['gata-name'];
-          $gataDes = $_POST['gata-des'];
+          $gataName = $_POST['cate-name'];
+          $gataDes = $_POST['cate-description'];
          
 
-          $query = " insert into gatagorey (name,des) values('$gataName','$gataDes')";// Query for insert value to gatagory table gatagorey
+          $query = " insert into category (name,description) values('$gataName','$gataDes')";// Query for insert value to category table category
           $result = mysqli_query($con,$query);
 
           if($result)
@@ -32,19 +32,16 @@
   
  else if(isset($_POST['pro']))
   {
-      if(empty($_POST['pro-name']) || empty($_POST['pro-des']) || empty($_POST['price']) || empty($_POST['gatagorey']) )// For make sure that post value is not empty
+      if(empty($_POST['pro-name']) || empty($_POST['pro-des']) || empty($_POST['price']) || empty($_POST['category']) )// For make sure that post value is not empty
       {
           echo " Please Fill in the Blanks";
       }
       else
       {
-
-
-
           $proName = $_POST['pro-name'];
           $proDes = $_POST['pro-des'];
           $proPrice = $_POST['price'];
-          $proGata = $_POST['gatagorey'];
+          $proGata = $_POST['category'];
           $proImage=$_FILES['image']['name'];
 
           $file_path="../public/upload/";  // Path that will storge the image
@@ -57,7 +54,7 @@
 
          
 
-          $query = " insert into product (prodName,price,des,image,gataID) values('$proName','$proPrice','$proDes','$newName','$proGata')";//Query for insert values to product table
+          $query = " insert into product (name,price,description,img,category) values('$proName','$proPrice','$proDes','$newName','$proGata')";//Query for insert values to product table
           $result = mysqli_query($con,$query);
        
 
