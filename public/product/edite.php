@@ -1,6 +1,6 @@
 <?php
 
-require_once("connection.php");
+require_once("../connection.php");
 $proID = $_GET['GetID'];
 $query = " select * from product where id='" . $proID . "'";
 $result = mysqli_query($con, $query);
@@ -22,13 +22,13 @@ while ($row = mysqli_fetch_assoc($result)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" a href="CSS/bootstrap.css" />
+    <link rel="stylesheet" a href="../CSS/bootstrap.css" />
     <title>Document</title>
 </head>
 
 <body class="bg-light">
     <?php
-    require_once("nav.php")
+    require_once("../nav.php")
     ?>
     <!-- this form for update products -->
     <div class="container">

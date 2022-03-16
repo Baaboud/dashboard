@@ -30,7 +30,7 @@ $result = mysqli_query($con, $query);
                         <h3 class="bg-dark text-white text-center py-3"> add category</h3>
                     </div>
                     <div class="card-body">
-                        <form action="insert.php" method="post">
+                        <form action="category/add.php" method="post">
                             <input type="text" class="form-control mb-3 fs-5" placeholder="Category Name" name="cate-name">
                             <input type="text" class="form-control mb-3 fs-5" placeholder="Category Description" name="cate-description">
                             <button type="submit" class="btn btn-dark d-inline-block w-100 fs-5" name="add-category">save</button>
@@ -48,7 +48,7 @@ $result = mysqli_query($con, $query);
                     </div>
                     <div class="card-body">
 
-                        <form action="insert.php" method="post" enctype="multipart/form-data">
+                        <form action="product/add.php" method="post" enctype="multipart/form-data">
                             <input type="text" class="form-control mb-3 fs-5" placeholder=" product Name " name="pro-name">
                             <input type="text" class="form-control mb-3 fs-5" placeholder=" description " name="pro-des">
                             <select name="category" id="" class="form-select mb-2 fs-5">

@@ -7,7 +7,6 @@ $result2 = mysqli_query($con, $query2);
 ?>
 
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,14 +47,12 @@ $result2 = mysqli_query($con, $query2);
                                 <td><?php echo $gataID ?></td>
                                 <td><?php echo $gataName ?></td>
                                 <td><?php echo $gataDes ?></td>
-                                <td><a class="btn btn-dark w-100" href="edit.php?GetID=<?php echo $gataID ?>">Edit</a></td>
-                                <td><a class="btn btn-dark w-100" href="delete.php?Del=<?php echo $gataID ?>">Delete</a></td>
+                                <td><a class="btn btn-dark w-100" href="category/edite.php?GetID=<?php echo $gataID ?>">Edit</a></td>
+                                <td><a class="btn btn-dark w-100" href="category/delete.php?Del=<?php echo $gataID ?>">Delete</a></td>
                             </tr>
                         <?php
                         }
                         ?>
-
-
                     </table>
                 </div>
             </div>
@@ -63,7 +60,7 @@ $result2 = mysqli_query($con, $query2);
 
         <div class="row">
             <div class="col m-auto">
-                <div class="card mt-5">
+                <div class="card my-5">
                     <!--for display products inside the table-->
                     <table class="table table-bordered text-center fs-4">
                         <h1 class="text-white bg-dark text-center p-2 ">Products</h1>
@@ -77,7 +74,6 @@ $result2 = mysqli_query($con, $query2);
                             <th> Edit </th>
                             <th> Delete </th>
                         </tr>
-
                         <?php
 
                         //Display products from database
@@ -88,8 +84,6 @@ $result2 = mysqli_query($con, $query2);
                             $price = $row['price'];
                             $proImage = $row['img'];
                             $gata = $row['category'];
-
-
                         ?>
                             <tr>
                                 <td><?php echo $proID ?></td>
@@ -98,8 +92,8 @@ $result2 = mysqli_query($con, $query2);
                                 <td><?php echo $proDes ?></td>
                                 <td><?php echo $price ?></td>
                                 <td><img src="../public/upload/<?php echo $proImage ?>" alt="" height=50px width=50px></td>
-                                <td><a class="btn btn-dark w-100" href="edit-pro.php?GetID=<?php echo $proID ?>">Edit</a></td>
-                                <td><a class="btn btn-dark w-100" href="delete.php?DelID=<?php echo $proID ?>">Delete</a></td>
+                                <td><a class="btn btn-dark w-100" href="product/edite.php?GetID=<?php echo $proID ?>">Edit</a></td>
+                                <td><a class="btn btn-dark w-100" href="product/delete.php?DelID=<?php echo $proID ?>">Delete</a></td>
                             </tr>
                         <?php
                         }

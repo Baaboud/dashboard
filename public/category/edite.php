@@ -1,6 +1,6 @@
 <?php
 
-require_once("connection.php");
+require_once("../connection.php");
 $gataID = $_GET['GetID'];
 $query = " select * from category where id='" . $gataID . "'";
 $result = mysqli_query($con, $query);
@@ -19,7 +19,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" a href="CSS/bootstrap.css" />
+    <link rel="stylesheet" a href="../CSS/bootstrap.css" />
     <title>Document</title>
 </head>
 
