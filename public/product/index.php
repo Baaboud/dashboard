@@ -23,6 +23,14 @@ $result = mysqli_query($con, $query);
     <div class="container">
         <div class="row">
             <h1 class="bg-dark text-light text-center py-2 mt-3">Products</h1>
+            <div class="row mt-2">
+                <div class="col-3">
+                    <a href="../product/add.php" class="btn btn-outline-primary p-2 fs-4 w-100">Add New Product</a>
+                </div>
+                <div class="col-3">
+                    <a href="../category/add.php" class="btn btn-outline-danger p-2 fs-4 w-100">Add New Category</a>
+                </div>
+            </div>
             <div class="card-group my-3">
                 <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
                     <?php
@@ -45,7 +53,7 @@ $result = mysqli_query($con, $query);
                                     <h3>$<?php echo $price ?></h3>
                                     <div class="row justify-content-around my-3">
                                         <a href="edite.php?GetID=<?php echo $proID ?>" class="btn btn-outline-dark col-5">Edit</a>
-                                        <a href="delete.php?GetID=<?php echo $proID ?>" class="btn btn-dark col-5">Delete</a>
+                                        <a href="delete.php?DelID=<?php echo $proID ?>" class="btn btn-dark col-5">Delete</a>
                                     </div>
                                 </div>
                             </div>

@@ -7,7 +7,7 @@ if(isset($_GET['DelID']))
             $result2 = mysqli_query($con,$query2);
             if($result2)
             {
-                header("location:../view.php");
+                header("location:index.php");
             }
             else
             {
@@ -16,5 +16,5 @@ if(isset($_GET['DelID']))
         }
          else
          {
-             header("location:../view.php");
+             header("location:view.php");
          }

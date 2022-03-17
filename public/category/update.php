@@ -11,7 +11,7 @@
 
         if($result)//check query 
         {
-            header("location:../view.php");// If ture redirct to view.php
+            header("location:index.php");// If ture redirct to view.php
         }
         else
         {
@@ -20,6 +20,6 @@
     }
     else
     {
-        header("location:../index.php");
+        header("location:index.php");
     }
 ?>

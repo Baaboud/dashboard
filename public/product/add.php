@@ -1,44 +1,62 @@
-<?php 
-  require_once("../connection.php");
-  // This  insert for products 
-  
- if(isset($_POST['pro']))
-  {
-      if(empty($_POST['pro-name']) || empty($_POST['pro-des']) || empty($_POST['price']) || empty($_POST['category']) )// For make sure that post value is not empty
-      {
-          echo " Please Fill in the Blanks";
-      }
-      else
-      {
-          $proName = $_POST['pro-name'];
-          $proDes = $_POST['pro-des'];
-          $proPrice = $_POST['price'];
-          $proGata = $_POST['category'];
-          $proImage=$_FILES['image']['name'];
+<?php
+require_once("../connection.php"); // For connection to database
+$query = "select * from category  "; // Query to select all data about category table
+$result = mysqli_query($con, $query);
 
-          $file_path="../upload/";  // Path that will storge the image
-          $filePart=explode(".",$proImage);
-          $ex=end($filePart);
-          $file_ex=["png","jpg"]; // extintion of images
-          if(in_array($ex,$file_ex)){
-              $newName=time().".".$ex; // for change name of image
-              move_uploaded_file($_FILES["image"]["tmp_name"],$file_path.$newName);
 
-          $query = " insert into product (name,price,description,img,category) values('$proName','$proPrice','$proDes','$newName','$proGata')";//Query for insert values to product table
-          $result = mysqli_query($con,$query);
-       
-          if($result)//check query 
-          {
-              header("location:../view.php");// If true redirct to view.php
-          }
-          else
-          {
-              echo '  Please Check Your Query '; // if false message 
-          }
-      }
-    }
-  }
-  else
-  {
-      header("location:index.php"); // if not requst redirct to index.php
-  }
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" a href="../css/bootstrap.css">
+    <title> category</title>
+</head>
+
+<body class="bg-light">
+    <?php
+    require_once("../nav.php")
+    ?>
+
+    <div class="container">
+        <!-- add category -->
+        <div class="row justify-content-center">
+            <!--add products-->
+            <div class="col-lg-6 col-md-6 ">
+                <div class="card mt-5 shadow">
+                    <div class="card-title my-0">
+                        <h3 class="bg-dark text-white text-center py-3"> add product</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <form action="insert.php" method="post" enctype="multipart/form-data">
+                            <input type="text" class="form-control mb-3 fs-5" placeholder=" product Name " name="pro-name">
+                            <input type="text" class="form-control mb-3 fs-5" placeholder=" description " name="pro-des">
+                            <select name="category" id="" class="form-select mb-2 fs-5">
+                                <?php while ($row = mysqli_fetch_assoc($result)) {
+                                    $gataID = $row['id'];
+                                    $gataName = $row['name'];
+                                    echo "<option value='$gataID'>" . $gataName . "</option>";
+                                } ?>
+                            </select>
+
+                            <input type="number" class="form-control mb-2 fs-5" placeholder="price" name="price">
+                            <input type="file" class="form-control mb-2 fs-5" placeholder=" select image " name="image">
+
+
+                            <button class="btn btn-dark w-100 fs-4" name="pro">save</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

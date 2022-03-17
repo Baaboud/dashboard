@@ -21,8 +21,11 @@ $result = mysqli_query($con, $query);
     require_once("nav.php")
     ?>
 
-    <div class="container">
-        <!-- add category -->
+    <?php
+    header("location:/board/public/product/index.php");
+    ?>
+
+    <!-- <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 ">
                 <div class="card mt-5 shadow">
@@ -40,7 +43,6 @@ $result = mysqli_query($con, $query);
                 </div>
             </div>
 
-            <!--add products-->
             <div class="col-lg-6 col-md-6 ">
                 <div class="card mt-5 shadow">
                     <div class="card-title my-0">
@@ -62,7 +64,6 @@ $result = mysqli_query($con, $query);
                             <input type="number" class="form-control mb-2 fs-5" placeholder="price" name="price">
                             <input type="file" class="form-control mb-2 fs-5" placeholder=" select image " name="image">
 
-
                             <button class="btn btn-dark w-100 fs-4" name="pro">save</button>
                         </form>
 
@@ -70,8 +71,7 @@ $result = mysqli_query($con, $query);
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+    </div> -->
 
 </body>
 

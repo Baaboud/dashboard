@@ -25,7 +25,7 @@
 
         if($result2)
         {
-            header("location:../view.php");
+            header("location:index.php");
         }
         else
         {
@@ -34,11 +34,9 @@
 
     }
    }
-
-
     else
     {
-        header("location:../view.php");
+        header("location:index.php");
     }
 
 
