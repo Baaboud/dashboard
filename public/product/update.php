@@ -1,27 +1,8 @@
 <?php 
 
-    require_once("connection.php"); 
-
-    if(isset($_POST['update'])) 
-    {
-        $gataID = $_GET['ID'];
-        $gataName = $_POST['cate-name'];
-        $gataDes = $_POST['cate-description'];
-
-        $query = " update category set name = '".$gataName."', description='".$gataDes."' where id='".$gataID."'";// this query for update table category
-        $result = mysqli_query($con,$query);
-
-        if($result)//check query 
-        {
-            header("location:view.php");// If ture redirct to view.php
-        }
-        else
-        {
-            echo ' Please Check Your Query '; // if false will print error message
-        }
-    }
+    require_once("../connection.php");
 //update product
-    else if(isset($_POST['updateProduct']))
+    if(isset($_POST['updateProduct']))
     {
         $proID = $_GET['ID'];
         $proName = $_POST['pro-name'];
@@ -30,7 +11,7 @@
         $gata = $_POST['category'];
         $image=$_FILES['image']['name'];
 
-        $file_path="../public/upload/"; //this path for storge image
+        $file_path="../upload/"; //this path for storge image
         $filePart=explode(".",$image);
         $ex=end($filePart);
         $file_ex=["png","jpg"];
@@ -44,7 +25,7 @@
 
         if($result2)
         {
-            header("location:view.php");
+            header("location:index.php");
         }
         else
         {
@@ -53,11 +34,9 @@
 
     }
    }
-
-
     else
     {
-        header("location:view.php");
+        header("location:index.php");
     }
 
 

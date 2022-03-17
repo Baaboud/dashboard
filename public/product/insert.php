@@ -1,36 +1,8 @@
 <?php 
-  require_once("connection.php");
-// This  insert for category
-  if(isset($_POST['add-category']))
-  {
-      if(empty($_POST['cate-name']) || empty($_POST['cate-description']) ) // For make sure that post value is not empty
-      {
-          echo ' Please Fill in the Blanks ';
-      }
-      else
-      {
-          $gataName = $_POST['cate-name'];
-          $gataDes = $_POST['cate-description'];
-         
-
-          $query = " insert into category (name,description) values('$gataName','$gataDes')";// Query for insert value to category table category
-          $result = mysqli_query($con,$query);
-
-          if($result)
-          {
-              header("location:view.php"); // If true redirct to view.php
-          }
-          else
-          {
-              echo '  Please Check Your Query '; // meagge if query error
-          }
-      }
-  }
-  
-
+  require_once("../connection.php");
   // This  insert for products 
   
- else if(isset($_POST['pro']))
+ if(isset($_POST['pro']))
   {
       if(empty($_POST['pro-name']) || empty($_POST['pro-des']) || empty($_POST['price']) || empty($_POST['category']) )// For make sure that post value is not empty
       {
@@ -44,7 +16,7 @@
           $proGata = $_POST['category'];
           $proImage=$_FILES['image']['name'];
 
-          $file_path="../public/upload/";  // Path that will storge the image
+          $file_path="../upload/";  // Path that will storge the image
           $filePart=explode(".",$proImage);
           $ex=end($filePart);
           $file_ex=["png","jpg"]; // extintion of images
@@ -52,15 +24,12 @@
               $newName=time().".".$ex; // for change name of image
               move_uploaded_file($_FILES["image"]["tmp_name"],$file_path.$newName);
 
-         
-
           $query = " insert into product (name,price,description,img,category) values('$proName','$proPrice','$proDes','$newName','$proGata')";//Query for insert values to product table
           $result = mysqli_query($con,$query);
        
-
           if($result)//check query 
           {
-              header("location:view.php");// If true redirct to view.php
+              header("location:index.php");// If true redirct to view.php
           }
           else
           {
@@ -73,4 +42,3 @@
   {
       header("location:index.php"); // if not requst redirct to index.php
   }
-?>
